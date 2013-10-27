@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TcAb::Application.load_tasks
+TechCampABTesting::Application.load_tasks

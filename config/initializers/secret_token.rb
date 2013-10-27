@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TcAb::Application.config.secret_key_base = '171fb44074907725dcf755a94c762162afe011deae16f842132d5a6dc27194f58c30d4d23032dbfaf8616a0338760aa443ae8eb7c59fc812de326d5cad2f1963'
+TechCampABTesting::Application.config.secret_key_base = '171fb44074907725dcf755a94c762162afe011deae16f842132d5a6dc27194f58c30d4d23032dbfaf8616a0338760aa443ae8eb7c59fc812de326d5cad2f1963'

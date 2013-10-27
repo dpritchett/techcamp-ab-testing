@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-TcAb::Application.initialize!
+TechCampABTesting::Application.initialize!
