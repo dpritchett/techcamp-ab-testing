@@ -1,28 +1,33 @@
 box: wercker/ubuntu12.04-ruby2.0.0
-# Build definition
-# See the Rails section on the wercker devcenter:
-# http://devcenter.wercker.com/articles/languages/ruby/settingup-rails4.html
-# You will want to define your database as follows: 
-# services:
-#   - wercker/postgresql
-# See more about services on our devcenter:
-# http://devcenter.wercker.com/articles/services/
+services:
+  - wercker/postgresql
 build:
-    steps:
-        # A step that executes `bundle install` command
-        - bundle-install
-        # A step that prepares the database.yml using the database in services
-        #- rails-database-yml
-        # A custom script step, name value is used in the UI
-        # and the code value contains the command that get executed
-        - script:
-            name: echo ruby information
-            code: |
-                echo "ruby version $(ruby --version) running"
-                echo "from location $(which ruby)"
-                echo -p "gem list: $(gem list)"
-        # Add more steps here:
-        # - script:
-        #        name: rspec
-        #        code: bundle exec rspec
-
+  steps:
+    - bundle-install
+    - rails-database-yml
+    - script:
+        name: db:setup
+        code: bundle exec rake db:setup
+    - script:
+        name: echo ruby information
+        code: |
+          echo "ruby version $(ruby --version) running"
+          echo "from location $(which ruby)"
+          echo -p "gem list: $(gem list)"
+    #- script: 
+        #name: rspec  # maybe next lifetime
+        #code: bundle exec rspec
+deploy:
+  steps:
+    - heroku-deploy
+  after-steps:
+    - script:
+        name: Update database
+        code: heroku run rake db:migrate --app $HEROKU_APP_NAME
+    - script:
+        # puma boot times were angering heroku, this seems to help :(
+        name: pause for dramatic effect
+        code: sleep 5
+    - script:
+        name: Reset heroku app servers
+        code: heroku restart --app $HEROKU_APP_NAME
