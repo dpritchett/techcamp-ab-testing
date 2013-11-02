@@ -38,4 +38,4 @@ deploy:
         port: 6667
         nickname: dpritchettBot
         channel:  memtech
-        passed-message: Hooray, new code is live at techcamp-abtesting.herokuapp.com!
+        passed-message: Hooray, new code is live at techcamp-abtesting.herokuapp.com
