@@ -1,4 +1,6 @@
 class TestResultsController < ApplicationController
+  protect_from_forgery with: :exception
+
   def index
     results = TestResult.all.order("updated_at desc").limit(50)
     render json: results
@@ -12,7 +14,7 @@ class TestResultsController < ApplicationController
     Rails.logger.debug params
     tr = TestResult.create(
       {
-        params:      params,
+        params:      cleaned_params,
         test_name:   params[:test_name],
         test_value:  params[:test_value],
         request_url: params[:request_url],
@@ -26,5 +28,10 @@ class TestResultsController < ApplicationController
     else
       render json: { errors: tr.errors }, status: 422
     end
+  end
+
+  private
+  def cleaned_params
+    params.reject { |(k,v)| k == 'authenticity_token' }
   end
 end
