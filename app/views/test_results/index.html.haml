@@ -1,0 +1,20 @@
+
+%table.table.table-striped.table-bordered.table-condensed
+  %caption
+    %h1 Test Results
+  %tr
+    %th 
+    %th Test
+    %th Response
+    %th{ colspan: 2} Who
+    %th When
+  %tbody
+    - @results.each_with_index do |res, i|
+      %tr
+        %td= i+1
+        %td= res.test_name
+        %td
+          %strong= res.test_value
+        %td= res.ip_address
+        %td= res.user_agent.first(128)
+        %td= time_ago_in_words(res.created_at)

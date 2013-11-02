@@ -2,8 +2,7 @@ class TestResultsController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    results = TestResult.all.order("updated_at desc").limit(50)
-    render json: results
+    @results = TestResult.all.order("updated_at desc").limit(50)
   end
 
   def show

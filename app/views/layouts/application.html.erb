@@ -19,12 +19,13 @@
     </div>
   </div>
   <div id="main-content" class="container">
-    <h1>AB Testing Demos</h1>
+    <h1><%= link_to('AB Testing Demos', root_path) %></h1>
   </div>
 
   <%= yield %>
 
 </div>
+
 <script>
 <%= yield :js_onready %>
 </script>
