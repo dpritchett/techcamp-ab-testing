@@ -43,6 +43,7 @@ end
 
 group :development, :test do
   gem "better_errors", "~> 1.0.1"
+  gem "binding_of_caller", "~> 0.7.2"
   gem "pry-rails", "~> 0.3.2"
   gem "pry-doc", "~> 0.4.6"
 end
