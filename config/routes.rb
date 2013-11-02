@@ -1,4 +1,10 @@
 TechCampABTesting::Application.routes.draw do
+  root 'split_tests#index'
+
+  resources :split_tests
+
+  resources :test_results
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

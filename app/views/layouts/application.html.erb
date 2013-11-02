@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TechCampABTesting</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<title>TechCampABTesting</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <h1>TechCamp AB Testing Demos</h1>
 
-<%= yield %>
+  <%= yield %>
 
+</div>
+<script>
+  <%= yield :js_onready %>
+</script>
 </body>
 </html>

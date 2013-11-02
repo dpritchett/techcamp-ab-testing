@@ -1,0 +1,12 @@
+- content_for :js_onready do
+  SplitTest.initialize()
+
+- test_name = 'login_button'
+- ab_test(test_name, "turtle", "banana") do |fruit|
+  %button#split-test-button{ data: { testValue: fruit, testName: test_name } }
+    I like #{fruit.pluralize}
+
+%p
+  = link_to("Recent test results", "/test_results")
+
+- finished("login_button")
