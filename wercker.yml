@@ -34,8 +34,8 @@ deploy:
         name: Reset heroku app servers
         code: heroku restart --app $HEROKU_APP_NAME
     - wouter/irc-notify:
-       server: irc.freenode.net
-       port: 6667
-       nickname: dpritchettBot
-       channel:  memtech
-       passed-message: Hooray, new code is live at techcamp-abtesting.herokuapp.com!
+        server: irc.freenode.net
+        port: 6667
+        nickname: dpritchettBot
+        channel:  memtech
+        passed-message: Hooray, new code is live at techcamp-abtesting.herokuapp.com!
