@@ -37,5 +37,5 @@ deploy:
         server: irc.freenode.net
         port: 6667
         nickname: dpritchettBot
-        channel:  memtech
+        channel:  tcmem
         passed-message: Hooray, new code is live at techcamp-abtesting.herokuapp.com
