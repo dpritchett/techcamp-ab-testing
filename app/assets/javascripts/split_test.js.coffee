@@ -13,10 +13,7 @@ window.SplitTest ||=
 
     $.post("/test_results",
       params,
-      ((data,textStatus,jqXHR) -> console.log(data)))
-
-    window.location = "/"
-
+      ((data,textStatus,jqXHR) -> (window.location = "/")))
 
   testData: ->
     $("#split-test-button").data()

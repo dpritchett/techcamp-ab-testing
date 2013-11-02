@@ -2,10 +2,10 @@
   SplitTest.initialize()
 
 #test-cnt
-  - ab_test(@test_name, @test_values) do |fruit|
+  - ab_test(@test_name, @test_values) do |test_value|
 
-    .btn#split-test-button{ data: { testValue: fruit, testName: @test_name } }
-      #{@test_name.to_s.humanize} #{fruit.to_s.upcase}
+    .btn#split-test-button{ data: { testValue: test_value, testName: @test_name } }
+      #{@test_name.to_s.humanize} #{test_value.to_s}
 
   = link_to('Get me out of here!', "http://en.wikipedia.org/wiki/Special:Random", class: ["btn", "secondary"])
 
