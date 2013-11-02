@@ -13,17 +13,32 @@
   </a>
 </div>
 <div class="container">
-  <div id="header-image" class="container">
+  <div id="header-cnt" class="container">
     <div class="pull-right">
       <%= link_to(image_tag(asset_path('tc_logo_small.jpg')), "http://techcampmemphis.com/") %>
+
     </div>
+
+    <h1>
+      <%= link_to('AB Testing Demos', root_path) %>
+    </h1>
   </div>
   <div id="main-content" class="container">
-    <h1><%= link_to('AB Testing Demos', root_path) %></h1>
+
+    <div id="page-cnt">
+      <div class="pull-right">
+        <a href="<%= request.url %>">
+          <img src="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=<%= request.url %>&chld=H|0">
+        </a>
+      </div>
+      <%= yield %>
+    </div>
+
+    <%= link_to("Recent test results", "/test_results") %>
+    <div class="pull-right" >
+      Ⓒ  <a href="http//dpritchett.net">Daniel Pritchett</a>, 2013
+    </div>
   </div>
-
-  <%= yield %>
-
 </div>
 
 <script>

@@ -1,12 +1,13 @@
 - content_for :js_onready do
   SplitTest.initialize()
 
-%p
+#test-cnt
   - ab_test(@test_name, @test_values) do |fruit|
-    %button#split-test-button{ data: { testValue: fruit, testName: @test_name } }
+
+    .btn#split-test-button{ data: { testValue: fruit, testName: @test_name } }
       #{@test_name.to_s.humanize} #{fruit.to_s.upcase}
 
-%p
-  = link_to("Recent test results", "/test_results")
+  = link_to('Get me out of here!', "http://youtube.com", class: ["btn", "secondary"])
+
 
 - finished(@test_name)
