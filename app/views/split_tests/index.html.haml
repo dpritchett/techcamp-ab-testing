@@ -2,12 +2,11 @@
   SplitTest.initialize()
 
 %p
-  - test_name = 'login_button'
-  - ab_test(test_name, "turtles", "bananas") do |fruit|
-    %button#split-test-button{ data: { testValue: fruit, testName: test_name } }
-      I like #{fruit.html_safe}
+  - ab_test(@test_name, @test_values) do |fruit|
+    %button#split-test-button{ data: { testValue: fruit, testName: @test_name } }
+      #{@test_name.to_s.humanize} #{fruit.to_s.upcase}
 
 %p
   = link_to("Recent test results", "/test_results")
 
-- finished("login_button")
+- finished(@test_name)

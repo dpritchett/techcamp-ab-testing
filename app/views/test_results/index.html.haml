@@ -1,7 +1,7 @@
 
 %table.table.table-striped.table-bordered.table-condensed
   %caption
-    %h1 Test Results
+    %h1 Recent Test Results
   %tr
     %th 
     %th Test
@@ -17,4 +17,4 @@
           %strong= res.test_value
         %td= res.ip_address
         %td= res.user_agent.first(128)
-        %td= time_ago_in_words(res.created_at)
+        %td #{time_ago_in_words(res.created_at)} ago
