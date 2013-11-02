@@ -1,8 +1,10 @@
 class TestResultsController < ApplicationController
   protect_from_forgery with: :exception
 
+  before_action :load_ivars
+
   def index
-    @results = TestResult.all.order("updated_at desc").limit(50)
+    @results.order("updated_at desc").limit(50)
   end
 
   def show
@@ -32,5 +34,15 @@ class TestResultsController < ApplicationController
   private
   def cleaned_params
     params.reject { |(k,v)| k == 'authenticity_token' }
+  end
+
+  def load_ivars
+    only = params[:test_name]
+
+    if !!only
+      @results = TestResult.where(test_name: only)
+    else
+      @results = TestResult.all
+    end
   end
 end

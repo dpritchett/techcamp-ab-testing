@@ -9,5 +9,19 @@
 
   = link_to('Get me out of here!', "http://youtube.com", class: ["btn", "secondary"])
 
+  - finished(@test_name)
 
-- finished(@test_name)
+#other-tests-cnt
+  .pull-left
+    %h4 Available Tests
+    %ul
+    - @tests.each do |slug, values|
+      %li
+        = link_to(slug.humanize, "/?test_name=#{slug}")
+
+  .pull-left
+    %h4 Recent Results
+    %ul
+    - @tests.each do |slug, values|
+      %li
+        = link_to(slug.humanize, "/test_results?test_name=#{slug}")

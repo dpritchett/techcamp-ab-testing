@@ -15,6 +15,9 @@ window.SplitTest ||=
       params,
       ((data,textStatus,jqXHR) -> console.log(data)))
 
+    window.location = "/"
+
+
   testData: ->
     $("#split-test-button").data()
 
