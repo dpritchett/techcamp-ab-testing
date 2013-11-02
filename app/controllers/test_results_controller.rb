@@ -4,7 +4,7 @@ class TestResultsController < ApplicationController
   before_action :load_ivars
 
   def index
-    @results.order("updated_at desc").limit(50)
+    @results = @results.order("updated_at desc").limit(50)
   end
 
   def show
