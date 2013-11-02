@@ -19,7 +19,9 @@ build:
         #code: bundle exec rspec
 deploy:
   steps:
-    - heroku-deploy
+    - heroku-deploy:
+        # configurable on wercker under the settings tab
+        key-name: HEROKU_DEPLOY_KEY_PAIR
   after-steps:
     - script:
         name: Update database
